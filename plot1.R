@@ -1,0 +1,6 @@
+data=read.table("household_power_consumption.txt",sep=";",header=TRUE,stringsAsFactors = FALSE)
+library(dplyr)
+two_day_data=filter(data,Date=="1/2/2007"|Date=="2/2/2007")
+png(filename = "plot1.png")
+hist(as.numeric(two_day_data$Global_active_power),col="red",xlab="Global active power (kilowatt)", main="Global Active Power")
+dev.off()
